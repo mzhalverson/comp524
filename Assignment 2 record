@@ -1,0 +1,30 @@
+Problem 6.1:
+Implement CBC on a plaintext of arbitrary length; your program should be
+called as follows:
+python3 des-cbc.py key plaintext.txt
+and it should output ciphertext.txt using DES in ECB as a building block to implement
+DES in CBC. Essentially you need to loop over the characters in plaintext.txt in groups
+of 8 characters at a time, applying a modication of the above snippet each time. Propose
+a solution for the case that the length of plaintext is not divisible by 8.
+
+
+We want to manipulate DES on ECB to get DES on CBC
+CBC take a Message XOR with IV or prev ciphertext and encrypt (DES)
+We have the code to encrypt with DES using ECB
+To Use CBC we will XOR with IV, then use our ecryption function, then XOR again to get another ciphertext
+
+
+take input of file (plaintext.txt)
+Get key
+Create initial vector
+CBC LOOP:
+string to binary ascii
+slice into 8 bits each          str[index1:index2] 
+check if 8 bits (pad if not)
+first one, XOR with IV (randomly generate IV)
+DES on first one
+loop of message[i+1] XOR ciphertext[i]
+DES result each time
+
+
+I think it worked.....
